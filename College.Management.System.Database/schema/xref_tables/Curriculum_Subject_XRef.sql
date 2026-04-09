@@ -1,0 +1,15 @@
+CREATE TABLE dbo.Curriculum_Subject_XRef
+(
+	CurriculumSubjectXRefId UNIQUEIDENTIFIER CONSTRAINT PK_Curriculum_Subject_XRef PRIMARY KEY DEFAULT NEWSEQUENTIALID(),
+	RegulationId UNIQUEIDENTIFIER NOT NULL,
+	SubjectId UNIQUEIDENTIFIER NOT NULL,
+	SemesterId UNIQUEidENTIFIER NOT NULL,
+	IsActive BIT NOT NULL DEFAULT 1,
+	CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+	CreatedBy UNIQUEIDENTIFIER NOT NULL,
+	UpdatedAt DATETIME2 NULL,
+	UpdatedBy UNIQUEIDENTIFIER NULL,
+	CONSTRAINT FK_Curriculum_Subject_XRef_Regulation FOREIGN KEY (RegulationId) REFERENCES dbo.Regulation(RegulationId),
+	CONSTRAINT FK_Curriculum_Subject_XRef_Subject FOREIGN KEY (SubjectId) REFERENCES dbo.Subject(SubjectId),
+	CONSTRAINT FK_Curriculum_Subject_XRef_Semester FOREIGN KEY (SemesterId) REFERENCES dbo.Semester(SemesterId)
+);

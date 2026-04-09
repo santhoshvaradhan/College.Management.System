@@ -13,7 +13,5 @@ CREATE TABLE dbo.Staff
 
 	CONSTRAINT FK_Staff_Users FOREIGN KEY (UserId) REFERENCES dbo.Users(UserId),
 	CONSTRAINT FK_Staff_Department FOREIGN KEY (DepartmentId) REFERENCES dbo.Department(DepartmentId),
-	CONSTRAINT FK_Staff_Designation FOREIGN KEY (DesignationId) REFERENCES dbo.Designation(DesignationId)
-
-
+	CONSTRAINT FK_Staff_Designation FOREIGN KEY (DesignationId) REFERENCES dbo.Designation(DesingationId)
 );

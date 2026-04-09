@@ -10,7 +10,8 @@ CREATE TABLE dbo.Staff_Subject_XRef
 	Constraint FK_Staff_Subject_XRef_Staff FOREIGN KEY (StaffId) REFERENCES dbo.Staff(StaffId) ON DELETE CASCADE,
 	Constraint FK_Staff_Subject_XRef_Subject FOREIGN KEY (SubjectId) REFERENCES dbo.[Subject](SubjectId) ON DELETE CASCADE,
 	Constraint FK_Staff_Subject_XRef_Semester FOREIGN KEY (SemesterId) REFERENCES dbo.Semester(SemesterId) ON DELETE CASCADE,
-	Constraint FK_Staff_Subject_XRef_Department FOREIGN KEY (DepartmentId) REFERENCES dbo.Department(DepartmentId) ON DELETE SET NULL,
-	Constraint FK_Staff_Subject_XRef_Batch FOREIGN KEY (BatchId) REFERENCES dbo.Batch(BatchId) ON DELETE SET NULL
+	Constraint FK_Staff_Subject_XRef_Department FOREIGN KEY (DepartmentId) REFERENCES dbo.Department(DepartmentId) ON DELETE CASCADE,
+	Constraint FK_Staff_Subject_XRef_Batch FOREIGN KEY (BatchId) REFERENCES dbo.Batch(BatchId) ON DELETE NO ACTION
+
 	);
 	
