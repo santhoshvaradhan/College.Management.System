@@ -4,7 +4,8 @@
 CREATE OR ALTER PROCEDURE dbo.usp_Course_Delete
 (
 	@CourseId UNIQUEIDENTIFIER,
-	@LoggedInUserId UNIQUEIDENTIFIER
+	@LoggedInUserId UNIQUEIDENTIFIER,
+	@DeleteType BIT = 1 -- 1 for hard delete, 0 for soft delete (default is hard delete
 )
 AS
 BEGIN
@@ -20,8 +21,20 @@ BEGIN
 		RETURN;
 	END
 	BEGIN TRY
+	IF @DeleteType = 1
+	BEGIN
 		DELETE FROM dbo.Course WHERE CourseId = @CourseId;
 		SELECT 'Course deleted successfully.' AS Message;
+	END 
+	ELSE
+	BEGIN
+		UPDATE dbo.Course
+		SET IsActive = 0,
+			UpdatedAt = SYSDATETIME(),
+			UpdatedBy = @LoggedInUserId
+		WHERE CourseId = @CourseId;
+		SELECT 'Course deactivated successfully.' AS Message;
+	END
 	END TRY
 	BEGIN CATCH
 		THROW;

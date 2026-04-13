@@ -4,6 +4,7 @@
 DECLARE @ProgramId_BE UNIQUEIDENTIFIER = (SELECT ProgramId FROM dbo.Program WHERE ProgramCode = 'B.E'),
 		@ProgramId_BTech UNIQUEIDENTIFIER = (SELECT ProgramId FROM dbo.Program WHERE ProgramCode = 'B.Tech') ;
 
+PRINT @ProgramId_BE;
 
 INSERT INTO dbo.Course (CourseName, CourseCode, CourseDescription, CourseYear, CreatedBy, ProgramId)
 VALUES
