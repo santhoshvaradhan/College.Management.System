@@ -1,7 +1,4 @@
-name: SonarQube - Angular Clientname: SonarQube - AngularDsonar.organization=santhoshvaradhan
-            -Dsonar.sources=College.Management.System.Client/src
-            -Dsonar.exclusions=**/*.spec.ts,**/node_modules/**
-``
+name: SonarQube - Angular Client
 
 on:
   push:
@@ -40,3 +37,6 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=college-management-system-client
+            -Dsonar.organization=santhoshvaradhan
+            -Dsonar.sources=College.Management.System.Client/src
+            -Dsonar.exclusions=**/*.spec.ts,**/node_modules/**
