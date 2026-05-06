@@ -4,16 +4,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
-		SELECT
-			RoleId, 
-			RoleName, 
-			[Description], 
-			IsActive, 
-			CreatedAt, 
-			CreatedBy, 
-			UpdatedAt, 
-			UpdatedBy
-		FROM dbo.Roles;
+		SELECT * FROM dbo.vw_Roles;
 	END TRY
 	BEGIN CATCH
 		SELECT 

@@ -1,0 +1,3 @@
+CREATE OR ALTER VIEW vw_Users
+AS
+	SELECT * FROM  dbo.Users (NOLOCK);

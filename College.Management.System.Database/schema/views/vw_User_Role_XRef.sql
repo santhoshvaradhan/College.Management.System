@@ -1,0 +1,3 @@
+CREATE OR ALTER VIEW User_Role_XRef
+AS
+	SELECT * FROM User_Role_XRef (NOLOCK);

@@ -1,0 +1,3 @@
+CREATE OR ALTER VIEW vw_Roles
+AS
+SELECT * FROM dbo.Roles;
