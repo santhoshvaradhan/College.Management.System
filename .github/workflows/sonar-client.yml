@@ -1,0 +1,40 @@
+name: SonarQube - Angular Client
+
+on:
+  push:
+    branches: main
+    paths:
+      - "College.Management.System.Client/**"
+  pull_request:
+    branches: main
+    paths:
+      - "College.Management.System.Client/**"
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: College.Management.System.Client
+        run: npm install
+
+      - name: SonarCloud Scan (Client)
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_CLIENT }}
+        with:
+          args: >
+            -Dsonar.projectKey=college-management-system-client
+            -Dsonar.organization=santhoshvaradhan
+            -Dsonar.sources=College.Management.System.Client/src
+            -Dsonar.exclusions=**/*.spec.ts
