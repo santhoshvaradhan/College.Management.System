@@ -21,3 +21,5 @@ BEGIN
 		THROW;
 	END CATCH
 END;
+
+EXEC SP_HELP 'Batch'

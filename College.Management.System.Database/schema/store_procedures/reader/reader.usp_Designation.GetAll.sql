@@ -13,3 +13,7 @@ BEGIN
 	END CATCH
 		
 END
+
+EXEC usp_Designation_GetAll;
+
+EXEC xp_fixeddrives;
