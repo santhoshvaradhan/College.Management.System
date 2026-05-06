@@ -2,12 +2,14 @@ name: SonarQube - Angular Client
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+    - master
     paths:
       - "College.Management.System.Client/**"
 
   pull_request:
-    branches: [ main ]
+    branches: 
+    - master
     paths:
       - "College.Management.System.Client/**"
 
